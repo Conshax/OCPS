@@ -27,11 +27,11 @@ This solution makes content visible to everybody, easily accessible and can be i
 
 ## Concept
 
-[LSAT](https://lsat.tech) (= Lightning Service Authentication Token) is a protocol for "authentication and paid APIs". In essence, the protocol protects resources requested via HTTP by validating a payment made by the requestor that qualifies him/her to access a specific resource. The protocol can be used to protect a complete resource or only parts of it.&#x20;
+[LSAT](https://lsat.tech) (= Lightning Service Authentication Token) is a protocol for "authentication and paid APIs". In essence, the protocol protects resources requested via HTTP by validating a payment made by the requestor that qualifies him/her to access a specific resource. The protocol can be used to protect an entire resource or only parts of it.&#x20;
 
-To prove the right to access a resource, the requestor includes a proof of payment in the request to the server. If no payment proof is attached, the server responds with HTTP status code 402 "payment required" and the payment information. In the original protocol, Lightning invoices are used for payments. &#x20;
+To prove the right to access a resource, the requestor includes a proof of payment in the request to the server. If no proof of payment is attached, the server responds with HTTP status code 402 "payment required" and the payment information. In the original protocol, Lightning invoices are used for payments. &#x20;
 
-To make it work seamless with the current [Podcasting 2.0](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md) value tags we propose a slight extension which also allows the use of keysend payments in addition to the use of bolt11 invoices. This design decision is driven by the popularity of [Value4Value](https://value4value.info) payments, which rely on value tags as well as keysend payments and are integrated by a number of popular podcast players such as Breez, Fountain, Podverse and Castamatic. The usage of these established mechanisms eases the integration and ensures compatibility with Value4Value.\
+To make it work seamlessly with the current [Podcasting 2.0](https://github.com/Podcastindex-org/podcast-namespace/blob/main/docs/1.0.md) value tags, we propose a slight extension to allow the use of keysend payments in addition to the use of bolt11 invoices. This design decision is driven by the popularity of [Value4Value](https://value4value.info) payments, which rely on value tags as well as keysend payments and are integrated by a number of popular podcast players such as Breez, Fountain, Podverse and Castamatic. Using these established mechanismseases the integration and ensures compatibility with Value4Value.\
 
 
 ### LSAT protected episodes in the podcast feed&#x20;
@@ -59,12 +59,12 @@ Podcast clients that indicate to support LSAT eventually receive a 402 "payment 
 * Download request: Immediate 402 return
 * Range request (streaming): 402 once the protected part of the episode is queried
 
-In order to access the full episode, the client must pay each recipient ([defined in the podcast feed](./#lsat-protected-episodes-in-the-podcast-feed)) at least their split of the suggested total. Payments are made identifiable by including podcast data like the episode guid in the custom records of the keysend payments ([making a valid keysend payment](example-implementation.md#make-a-valid-keysend-payment)).&#x20;
+In order to access the full episode, the client must pay each recipient ([defined in the podcast feed](./#lsat-protected-episodes-in-the-podcast-feed)) at least their split of the suggested minimum price. Payments are made identifiable by including podcast data like the episode guid in the custom records of the keysend payments ([making a valid keysend payment](example-implementation.md#make-a-valid-keysend-payment)).&#x20;
 
 After the payments are made, the client requests the resource again, this time with an attached payment preimage. \
 &#x20;
 
-### **Communication flow**
+### **Protocol overview**
 
 <figure><img src=".gitbook/assets/mermaid-diagram-2023-02-11-120912.png" alt=""><figcaption><p>See the <a href="protocol-specification.md">protocol specification</a> for more details</p></figcaption></figure>
 

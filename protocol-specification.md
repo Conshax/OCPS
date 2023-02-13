@@ -50,7 +50,7 @@ The server responds with status code 402 and communicates the payment informatio
 {% tabs %}
 {% tab title="Recommended: Header" %}
 <pre class="language-http"><code class="lang-http">HTTP/2 402 Payment Required
-<strong>WWW-Authenticate: lsat-keysend token=“abc”, address=“02b5f5a96d6c0cfb7ad6adda59c25eba3c12a9a0beee22a8b31d3d20b59427bbca”, custom_key=“696969", custom_value=“4VqhBQ73TSgpTFbJ35C3”, amount=“10”
+<strong>WWW-Authenticate: lsat-keysend token="abc", address="02b5f5a96d6c0cfb7ad6adda59c25eba3c12a9a0beee22a8b31d3d20b59427bbca", custom_key="696969", custom_value="4VqhBQ73TSgpTFbJ35C3", amount="10"
 </strong># length of content that is available for free
 <strong>Lsat-Free-Content-Length: 500000
 </strong></code></pre>
@@ -64,9 +64,9 @@ To support clients that cannot read this header, the server also returns this in
 ```json
 {
     "token": "abc",
-    "address": "02b5.....", // payment recipient
+    "address": "02b5.....", // payment verifier
     "custom_key": "696969", //optional
-    "custom_value": "ABC", //optional
+    "custom_value": "4VqhBQ73TSgpTFbJ35C3", //optional
     "amount": 10 //amount to pay in sats
     
 }
@@ -87,7 +87,7 @@ A podcast episode can have multiple recipients that are defined in the episode's
 </podcast:value> 
 ```
 
-The client uses the `suggested` attribute as the (minimum) total amount, calculates the individual amounts and makes one keysend payment per `valueRecipient`. The payments must at least include the `episode_guid` property to make the payment relatable to the episode ([blip-10](https://github.com/lightning/blips/blob/master/blip-0010.md)). We recommend to provide all known blip-10 properties, to set the `action` to “lsat", and to set a `token` property to value of the token provided by the server (see step 1).
+The client uses the `suggested` attribute as the (minimum) total amount, calculates the individual amounts and makes one keysend payment per `valueRecipient`. The payments must at least include the `episode_guid` property to make the payment relatable to the episode ([blip-10](https://github.com/lightning/blips/blob/master/blip-0010.md)). We recommend to provide all known blip-10 properties, to set the `action` to “lsat", and to set a `token` property to the value of the token provided by the server (see step 1).
 
 The client stores the preimage of the keysend payment to the _**payment verifier**_ (from step 1) in a local variable.\
 
@@ -150,7 +150,7 @@ Server response:
 HTTP/2 206 OK
 Content-Type: audio/mpeg
 Content-Range: bytes 0-50000/15712231
-Content-Length: 500001
+Content-Length: 50001
 # length of content that is available for free
 Lsat-Free-Content-Length: 5000000
 Accept-Ranges: bytes
@@ -194,7 +194,7 @@ Server response:
 HTTP/2 206 OK
 Content-Type: audio/mpeg
 Content-Range: bytes 550001-550000/15712231
-Content-Length: 500000
+Content-Length: 50000
 Accept-Ranges: bytes
 ```
 {% endtab %}

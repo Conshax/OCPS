@@ -360,7 +360,7 @@ echo "> file metadata:"
 curl -I https://lsat-test.conshax.app/podcast/a3a1b651-94e2-56f0-9dee-a23813aa7220/episode/lsat-test.mp3
 
 # range (stream) request for a part of the free content
-echo "\n> this request will download the first part the freely available content (lsat-test-free-first-part.mp3):"
+echo "\n> this request will download the first part of the freely available content (lsat-test-free-first-part.mp3):"
 curl https://lsat-test.conshax.app/podcast/a3a1b651-94e2-56f0-9dee-a23813aa7220/episode/lsat-test.mp3 -H "range: bytes=0-2500000" --output lsat-test-free-first-part.mp3
 
 # download request for the full free resource
