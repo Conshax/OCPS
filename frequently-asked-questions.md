@@ -2,6 +2,26 @@
 
 <details>
 
+<summary>What if my audio library doesn’t let me handle 402 responses?</summary>
+
+For our test implementation, we extended the `podcast:valueRecipient` tag with a `lsat-keysend` attribute. This attribute can be used to identify the payment verifier by clients that don’t want / can’t parse data from the 402 response:&#x20;
+
+```xml
+<podcast:valueRecipient 
+  name=“Conshax” 
+  address=“02b5f5a96d6c0cfb7ad6adda59c25eba3c12a9a0beee22a8b31d3d20b59427bbca” 
+  type=“node” 
+  split=“10" 
+  lsat-keysend=“true” 
+ />
+```
+
+That way, you can pay for the episode in advance and request the episode with the preimage without ever receiving a 402 response from the server. See [Why don’t you introduce new XML tags for the RSS feed?](frequently-asked-questions.md#why-dont-you-introduce-new-xml-tags-for-the-rss-feed) to understand why we don't include that in the protocol for now.
+
+</details>
+
+<details>
+
 <summary>Why don't you introduce new XML tags for the RSS feed?</summary>
 
 First and foremost, we want to keep the integration workload for clients and servers as little as possible. A main strength of LSAT is that it only relies on the HTTP protocol, which makes it easy to integrate. We want to maintain this strength.
