@@ -11,7 +11,7 @@ For our test implementation, we extended the `podcast:valueRecipient` tag with a
   name=“Conshax” 
   address=“02b5f5a96d6c0cfb7ad6adda59c25eba3c12a9a0beee22a8b31d3d20b59427bbca” 
   type=“node” 
-  split=“10" 
+  split="10" 
   lsat-keysend=“true” 
  />
 ```
