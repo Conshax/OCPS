@@ -74,6 +74,8 @@ After the payments are made, the client requests the resource again, this time w
 
 * Conshax ([https://conshax.app](https://conshax.app))
 * Alby ([https://getalby.com](https://getalby.com))
+* Breez ([https://breez.technology](https://breez.technology))
+* Podverse ([https://podverse.fm](https://podverse.fm/))
 
 
 
