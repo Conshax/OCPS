@@ -8,7 +8,7 @@ description: >-
 
 ## State of this spec
 
-The OCPS is in an early "Request for Comments" state. Contribute to the discussion [on GitHub](https://github.com/Conshax/OCPS).\
+The OCPS is in an early "Request for Comments" state. Contribute to the discussion [on GitHub](https://github.com/Conshax/OCPS/discussions).\
 
 
 ## Motivation
@@ -81,6 +81,6 @@ After the payments are made, the client requests the resource again, this time w
 
 ## Discussion & Contact
 
-Please refer to [GitHub](https://github.com/Conshax/OCPS) to dicuss the OCPS.
+Please refer to [GitHub](https://github.com/Conshax/OCPS/discussions) to dicuss the OCPS.
 
 For all other inquiries, please you can reach out via [Telegram](https://t.me/moritz\_conshax), [Twitter](https://twitter.com/conshax) or mail (ocps@conshax.com).
